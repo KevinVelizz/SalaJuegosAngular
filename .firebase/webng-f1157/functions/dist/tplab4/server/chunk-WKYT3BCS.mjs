@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{Aa as i,Ba as a,Ea as r,Fa as s,R as o}from"./chunk-ZMDBVRMI.mjs";import"./chunk-VVCT4QZE.mjs";var d=(()=>{let e=class e{};e.\u0275fac=function(n){return new(n||e)},e.\u0275cmp=o({type:e,selectors:[["app-quien-soy"]],standalone:!0,features:[s],decls:2,vars:0,template:function(n,c){n&1&&(i(0,"p"),r(1,"quien-soy works!"),a())}});let t=e;return t})();export{d as QuienSoyComponent};

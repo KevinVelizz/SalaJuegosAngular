@@ -1,0 +1,20 @@
+<form class="login-form">
+    <p class="login-text">
+        <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-lock fa-stack-1x"></i>
+        </span>
+    </p>
+    <h2 style="color: white; text-align: center; padding: 15px 0; font-weight: 700;">LOGIN</h2>
+    <input type="email" class="login-username" [(ngModel)]="correo" autofocus="true" required="true" placeholder="Email" name="correo"/>
+    <input type="password" class="login-password" [(ngModel)]="clave" required="true" placeholder="Password" name="clave"/>
+    <label [(ngModel)]="validarUser" name="validarUser" style="color: red;">{{validarUser}}</label>
+    <input  type="submit" (click)="login()" name="Login" value="Login" class="login-submit" />
+    <p style="font-size: 20px; color: #fff;">Eres nuevo?<a class="registerLink" routerLink="/register">Crear Usuario</a></p>
+    </form>
+    <div class="underlay-photo"></div>
+    <div class="underlay-black"></div> 
+
+
+
+
