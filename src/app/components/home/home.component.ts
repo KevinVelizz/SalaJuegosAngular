@@ -1,6 +1,4 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { UsuarioService } from '../../services/usuario.service';
-import { Usuario } from '../../class/usuario';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -13,20 +11,18 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent  implements OnInit {
     
-  usuarios: Usuario[] = [];
   routerHome = inject(Router);
   
-  constructor(private UsuarioService:UsuarioService){}
+  constructor(private AuthService:AuthService){}
   
   ngOnInit(): void 
   {
-    this.UsuarioService.usuario.subscribe(usuarios =>
-    {
-      this.usuarios = usuarios;
+    this.AuthService.user$.subscribe(usuarioFire =>{
+      if(!usuarioFire)
+      {
+        this.routerHome.navigate(['/login']);
+      }
+      console.log(usuarioFire);
     });
-    if(this.usuarios.length == 0)
-    {
-      this.routerHome.navigate(['/login']);
-    }
   }
 }

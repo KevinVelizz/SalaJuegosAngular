@@ -58,19 +58,21 @@ export class LoginComponent {
       const user = await this.AuthService.loginUserFireBase(this.correo, this.clave);
       if (user) {
         const usuario = new Usuario(this.correo, this.clave);
-        this.UsuarioService.addNewUsuario(usuario);
+        // this.AuthService.setPersistenceLocal();
+        // this.UsuarioService.addNewUsuario(usuario);
         const mensaje:Message =
         {
           usuario: {correo:`${usuario.correo}`, clave: `${usuario.clave}`},
           fechaIngreso: new Date()
         }
-        this.MessageService.agregarMensaje(mensaje)
-        .then(() => console.log('Mensaje agregado correctamente'))
-        .catch(error => console.error('Error al agregar el mensaje:', error));
+        // this.MessageService.agregarMensaje(mensaje)
+        // .then(() => console.log('Mensaje agregado correctamente'))
+        // .catch(error => console.error('Error al agregar el mensaje:', error));
         this.toastScv.success("Inicio de Sesión exitoso.", undefined, {
           timeOut:2000,
           positionClass: 'toast-bottom-center',
-        })
+        });
+        console.log("entró");
         this.router2.navigate(['/home']);
       }
     } catch (error) {
