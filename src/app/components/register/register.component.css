@@ -10,6 +10,14 @@ body {
   display: flex;
   overflow: hidden;
 }
+
+.registerLink
+{
+  color: #e67e22;
+  font-size: 20px;
+  text-decoration: none;
+}
+
 input {
   ::-webkit-input-placeholder {
      color: rgba(255,255,255,0.7);

@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "webng-f1157"
+  },
+  "targets": {
+    "webng-f1157": {
+      "hosting": {
+        "tplab4": [
+          "webng-f1157"
+        ]
+      }
+    }
   }
 }
