@@ -9,9 +9,9 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment.development';
 import { provideToastr } from 'ngx-toastr';
 import { provideAnimations } from '@angular/platform-browser/animations';
-
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration(), importProvidersFrom(AngularFireModule.initializeApp(environment.firebaseConfig)), importProvidersFrom(provideAuth(() => getAuth())), importProvidersFrom(provideFirestore(() => getFirestore())), importProvidersFrom(provideStorage(() => getStorage())), provideAnimations(),
+  providers: [provideRouter(routes),importProvidersFrom(HttpClient), provideHttpClient(), provideClientHydration(), importProvidersFrom(AngularFireModule.initializeApp(environment.firebaseConfig)), importProvidersFrom(provideAuth(() => getAuth())), importProvidersFrom(provideFirestore(() => getFirestore())), importProvidersFrom(provideStorage(() => getStorage())), provideAnimations(),
   provideToastr()],
 };

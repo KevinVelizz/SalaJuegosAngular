@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { Usuario } from '../../class/usuario';
 import { AuthService } from '../../services/auth.service';
-import { UsuarioService } from '../../services/usuario.service';
 import { MessageService } from '../../services/message.service';
 import { Message } from '../../interfaces/message';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -32,7 +31,7 @@ export class LoginComponent {
   validarUser:string = "";
   usuariosLogueados;
     
-  constructor(private AuthService :AuthService, private UsuarioService : UsuarioService, private MessageService: MessageService, private NotificationService:NotificationService)
+  constructor(private AuthService :AuthService, private MessageService: MessageService, private NotificationService:NotificationService)
   {
     this.usuariosLogueados = [
       {email: 'kevinveliz@veliz.com', password: '123456'},

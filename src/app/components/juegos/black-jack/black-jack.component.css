@@ -1,0 +1,213 @@
+/* FONDO PAGINA */
+[class*=underlay] {
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    top: 0; 
+}
+.underlay-photo {
+    animation: hue-rotate 6s infinite;
+    background: url('../../../../assets/img/fondo-home.jpg');
+    background-size: cover;
+    -webkit-filter: grayscale(30%);
+    z-index: -1;
+}
+.underlay-black {
+    background: rgba(0,0,0,0.7);
+    z-index: -1;
+}
+  
+@keyframes hue-rotate {
+    from {
+        -webkit-filter: grayscale(30%) hue-rotate(0deg);
+    }
+    to {
+        -webkit-filter: grayscale(30%) hue-rotate(360deg);
+    }
+}
+
+/* MAIN */
+.main-contenedor
+{
+    width: 700px;
+    padding: 40px;
+    margin: 0 auto;
+    height: 85vh;
+}
+
+/* CONTENEDOR JUEGO */
+.contenedor-juego
+{
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+}
+
+
+/* TITULO */
+
+.titulo
+{
+  font-size: 5vmin;
+  margin: 1em 0;
+  color: black;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-shadow: #fbff00 .05em  .05em 0;
+}
+
+/* TEXTO FINAL JUEGO */
+.text-terminado
+{
+    font-size: 25px;
+    font-weight: 700;
+    color: wheat;
+}
+
+/* FOOTER */
+
+.contenedor-juego
+{
+    height: 150px;
+}
+.text-copy
+{
+    text-align: center;
+    color: wheat;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+/* CARTAS */
+
+
+#player-hand, #dealer-hand {
+    display: flex;
+}
+  
+#player-hand img, #dealer-hand img {
+    width: 85px;
+    height: 130px;
+    margin-right: 10px;
+}
+  
+  #actions button {
+    margin-right: 10px;
+}
+  
+.cartas
+{
+    text-align: center;
+    margin: 0 auto;
+}
+  
+/* PUNTOS */
+.valor
+{
+    color: wheat;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+
+/* BOTONES */
+
+/* BOTON INICIAR */
+.button {
+    --bg-color: rgb(0, 119, 255);
+    --color: white;
+    --border-radius: 1rem;
+    --animation-duaration: 1s;
+    width: 150px;
+    --height: 50px;
+    --span-width: 1.5rem;
+    --base-pos: 0rem;
+    --final-pos: -2rem;
+    margin: 0 auto;
+}
+  
+.button, .left, .right {
+    height: var(--height);
+    background-color: var(--bg-color);
+    transition: all var(--animation-duaration) ease-in-out;
+}
+  
+.button {
+    position: relative;
+    font-size: 1rem;
+    padding: 0rem 2.5rem;
+    color: var(--color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+  
+.left, .right {
+    width: var(--span-width);
+    position: absolute;
+    top: 0rem;
+}
+  
+.left {
+    left: var(--base-pos);
+    border-radius: var(--border-radius) 0rem 0rem var(--border-radius);
+}
+  
+.right {
+    right: var(--base-pos);
+    border-radius: 0rem var(--border-radius) var(--border-radius) 0rem;
+}
+  
+.button:hover {
+    animation: button-radius var(--animation-duaration) infinite ease-in-out;
+}
+  
+.button:hover .left {
+    animation: left-shake var(--animation-duaration) infinite ease-in-out;
+}
+  
+.button:hover .right {
+    animation: right-shake var(--animation-duaration) infinite ease-in-out;
+}
+  
+@keyframes button-radius {
+    0% {
+      border-radius: var(--border-radius);
+    }
+  
+    50% {
+      border-radius: 0rem;
+    }
+  
+    100% {
+      border-radius: var(--border-radius);
+    }
+}
+  
+@keyframes left-shake {
+    0% {
+        left: var(--base-pos);
+    }
+
+    50% {
+        left: var(--final-pos);
+    }
+
+    100% {
+        left: var(--base-pos);
+    }
+}
+  
+@keyframes right-shake {
+    0% {
+        right: var(--base-pos);
+    }
+
+    50% {
+        right: var(--final-pos);
+    }
+
+    100% {
+        right: var(--base-pos);
+    }
+}

@@ -24,14 +24,4 @@ export class AuthService {
   {
     return await this.authF.signOut();
   }
-
-  setPersistenceLocal() {
-    this.authF.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-      .then(() => {
-        console.log('Persistencia local configurada');
-      })
-      .catch((error) => {
-        console.error('Error al configurar persistencia local:', error);
-      });
-  }
 }

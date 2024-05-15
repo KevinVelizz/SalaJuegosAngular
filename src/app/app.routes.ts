@@ -16,8 +16,15 @@ export const routes: Routes = [
     {path:"home", loadComponent: () =>
         import('../app/components/home/home.component').then(
             (m) => m.HomeComponent
-        ),},
+    ),},
+    {path:"chat", loadComponent: () =>
+        import('../app/components/chat/chat.component').then(
+            (m) => m.ChatComponent
+    ),},
+    {path:"juegos", loadChildren:()=> import('./components/juegos/juegos.routes'),
+    },
     {path: '', redirectTo: 'login', pathMatch: 'full'},
+    
     //   {path:"**", loadComponent: () =>
         // import('../app/components/error/error.component').then(
         //   (m) => m.ErrorComponent

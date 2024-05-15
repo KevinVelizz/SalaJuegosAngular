@@ -21,15 +21,13 @@ main {
     transform: scale(1.05);
     cursor: pointer;
 }
-footer {
-    padding: 20px;
-    text-align: center;
-    
-}
 
 .text-copy
 {
-    color: white;
+    color: wheat;
+    font-size: 23px;
+    font-weight: 700;
+    text-align: center;
 }
 
 
@@ -50,19 +48,36 @@ footer {
     animation: buttonHover 0.3s ease;
 }
 
-.image-home
-{
+
+[class*=underlay] {
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    top: 0;
+}
+.underlay-photo {
     animation: hue-rotate 6s infinite;
     background: url('../../../assets/img/fondo-home.jpg');
     background-size: cover;
     -webkit-filter: grayscale(30%);
     z-index: -1;
 }
+.underlay-black {
+    background: rgba(0,0,0,0.7);
+    z-index: -1;
+}
 
-[class*=image] {
-    left: 0;
-    min-height: 100%;
-    min-width: 100%;
-    position: fixed;
-    top: 0;
+@keyframes hue-rotate {
+    from {
+        -webkit-filter: grayscale(30%) hue-rotate(0deg);
+    }
+    to {
+        -webkit-filter: grayscale(30%) hue-rotate(360deg);
+    }
+}
+
+.titulo
+{
+    color: wheat;
 }

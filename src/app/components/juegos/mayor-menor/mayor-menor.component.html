@@ -1,0 +1,33 @@
+<main class="main-contenedor">
+    <div class="container">
+        <h1 class="titulo">Mayor o Menor</h1>
+        <p>Puntuación: {{ puntos }}</p>
+        @if(!perdiste && cartaActual && cartas.length > 1)
+        {
+            <div>
+                <img [src]="cartaActual.image" alt="{{ cartaActual.code }}" class="carta">
+                <div>
+                    <button class="boton-carta" (click)="play('mayor')" [disabled]="cartas.length <= 1">
+                        <a>Mayor</a>
+                    </button>
+                    <button class="boton-carta" (click)="play('menor')" [disabled]="cartas.length <= 1">
+                        <a>Menor</a>
+                    </button>
+                </div>
+            </div>
+        }
+
+        @if(perdiste)
+        {
+            <p class="texto-final">Fin del juego. Puntuación final: {{ puntos }}</p>
+        }
+        <button class="boton-carta" (click)="iniciarJuego()">
+            <a>Nuevo Juego</a>
+        </button>
+    </div>
+</main>
+<footer>
+    <p class="text-copy">&copy; 2024 Web de Juegos. Todos los derechos reservados.</p>
+</footer>
+<div class="underlay-photo"></div>
+<div class="underlay-black"></div> 

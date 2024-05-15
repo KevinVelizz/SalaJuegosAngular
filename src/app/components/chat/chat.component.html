@@ -1,0 +1,34 @@
+@if(!mostrarChat && usuarioUid)
+{
+  <div class="chat-icon-container" (click)="mostrar(true)">
+    <img src="../../../assets/img/conversacion.png" alt="chat icon" class="chat-icon">
+  </div>
+}
+
+@if(mostrarChat && usuarioUid)
+{
+  <div class="card text-center cardContainer">
+    <div class="card-header">
+      CHAT
+      <div class="close-icon" (click)="mostrar(false)">X</div>
+    </div>
+    <div class="card-body h-100" id="card-body">
+        @for (mensaje of mensajes; track mensaje.uid) {
+          <p style="color: white;" class="msj p-2" [ngClass]="(usuarioUid == mensaje.uid)? 'enviado' : 'recibido' ">{{ mensaje.mensajes }}</p>
+        }
+    </div>
+    <form class="card-footer text-muted input-group" (ngSubmit)="enviarMensaje()">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="nuevoMensaje" placeholder="Ingrese su mensaje" name="nuevoMensaje">
+        <span class="input-group-text" id="basic-addon2" (click)="enviarMensaje()">
+          <img class="imgEnviar" src="../../../assets/img/send.png" width="20px" alt="send message">
+        </span>
+      </div>
+    </form>
+  </div>
+}
+
+
+
+
+

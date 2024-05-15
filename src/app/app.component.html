@@ -1,12 +1,33 @@
 <header class="header">
-  <nav>
-     <button routerLink="quienSoy"  class="error__button error__button--active">Quien Soy</button>
+  <nav class="flex gap-2 px-8 py-8">
+    <button routerLink="quienSoy" class="ui-btn">
+      <span>
+        Quien Soy 
+      </span>
+    </button>
   @if(logueado == false){
-    <button routerLink="login" class="error__button error__button--active">LOGIN</button>
+    <button routerLink="login" class="ui-btn">
+      <span>
+        LOGIN 
+      </span>
+    </button>
   }@else if(logueado){
-    <button routerLink="home"  class="error__button error__button--active">HOME</button>
-    <button (click)="LogOut()" class="error__button error__button--active">LogOut</button>
+    <button routerLink="home" class="ui-btn">
+      <span>
+        HOME 
+      </span>
+    </button>
+    
   }
   </nav>
+  <div class="salir">
+    <h2 class="usuario">{{correo}}</h2>
+    <button (click)="LogOut()" class="ui-btn">
+      <span>
+        LOGOUT 
+      </span>
+    </button>
+  </div>
 </header>
+<app-chat></app-chat>
 <router-outlet></router-outlet>
