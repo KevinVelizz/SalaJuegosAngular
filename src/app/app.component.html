@@ -5,29 +5,31 @@
         Quien Soy 
       </span>
     </button>
-  @if(logueado == false){
-    <button routerLink="login" class="ui-btn">
-      <span>
-        LOGIN 
-      </span>
-    </button>
-  }@else if(logueado){
+  @if(logueado){
     <button routerLink="home" class="ui-btn">
       <span>
         HOME 
       </span>
     </button>
-    
-  }
-  </nav>
-  <div class="salir">
-    <h2 class="usuario">{{correo}}</h2>
-    <button (click)="LogOut()" class="ui-btn">
+  }@else if(!logueado){
+    <button routerLink="login" class="ui-btn">
       <span>
-        LOGOUT 
+        LOGIN 
       </span>
     </button>
-  </div>
+  }
+  </nav>
+  @if(logueado)
+  {
+    <div class="salir">
+      <h2 class="usuario">{{correo}}</h2>
+      <button (click)="LogOut()" class="ui-btn">
+        <span>
+          LOGOUT 
+        </span>
+      </button>
+    </div>
+  }
 </header>
 <app-chat></app-chat>
 <router-outlet></router-outlet>

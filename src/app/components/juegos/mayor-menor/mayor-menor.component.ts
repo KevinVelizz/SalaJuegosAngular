@@ -12,6 +12,7 @@ export class MayorMenorComponent {
   deckId = '';
   cartas: any[] = [];
   cartaActual: any;
+  cartaSiguiente: any;
   puntos = 0;
   perdiste = false;
 
@@ -22,43 +23,44 @@ export class MayorMenorComponent {
     this.perdiste = false;
     this.cardService.getNewDeck().subscribe(deck => {
       this.deckId = deck.deck_id;
-      this.drawCards(2);
+      this.drawCards(1);
     });
   }
 
   drawCards(count: number) {
     this.cardService.drawCards(this.deckId, count).subscribe(data => {
-      if (data.success && data.cards.length >= count) {
-        this.cartas = data.cards;
-        this.cartaActual = this.cartas[0];
-      } else {
-        this.perdiste = true;
-      }
+      const cartas = data.cards;
+      this.cartaActual = this.sanitizarValor(cartas[0]);
     });
   }
 
-  play(guess: string) {
-    if (this.perdiste) return;
-
-    const nextCard = this.cartas[1];
-    if (
-      (guess === 'mayor' && nextCard.value > this.cartaActual.value) ||
-      (guess === 'menor' && nextCard.value < this.cartaActual.value)
-    ) {
-      this.puntos++;
-    } else if(this.puntos > 0) {
-      this.puntos--;
-    }
-
-    this.cartas.shift();
-    this.cartaActual = nextCard;
-
-    if (this.cartas.length > 1) {
-      this.drawCards(1);
-    } else {
-      this.perdiste = true;
-    }
-
-    if (this.perdiste) return;
+  play(cartaAdivinar: string) { 
+    this.cardService.drawCards(this.deckId, 1).subscribe(data => {
+      const cartas = data.cards;
+      this.cartaSiguiente = this.sanitizarValor(cartas[0]);
+      if (
+        (cartaAdivinar === 'mayor' && parseInt(this.cartaActual.value) < parseInt(this.cartaSiguiente.value)) ||
+        (cartaAdivinar === 'menor' && parseInt(this.cartaActual.value) > parseInt(this.cartaSiguiente.value))
+      ) {
+        this.puntos = this.puntos + 10;
+      } else if(this.puntos > 0 && this.cartaActual.value != this.cartaSiguiente.value) {
+        this.puntos = this.puntos - 5;
+      }
+      this.cartaActual = this.cartaSiguiente;
+    });
   }
+
+  sanitizarValor(carta:any)
+  {
+    if (["KING", "QUEEN", "JACK"].includes(carta.value))
+    {
+      carta.value = 10;
+    }
+    else if(carta.value === "ACE")
+    {
+      carta.valor = 1;
+    }
+    return carta;
+  }
+
 }

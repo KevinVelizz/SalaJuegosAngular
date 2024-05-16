@@ -2,7 +2,7 @@
 main {
     padding: 40px;
     text-align: center;
-    height: 80vh;
+    height: 85vh;
 }
 .game-container {
     display: grid;
@@ -80,4 +80,8 @@ main {
 .titulo
 {
     color: wheat;
+    font-size: 27px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
 }

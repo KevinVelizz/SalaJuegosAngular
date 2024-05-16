@@ -9,8 +9,8 @@
 
 .card-header
 {
-    background-color: rgb(102, 102, 243);
-    color: white;
+    background-color: wheat;
+    color: black;
     font-weight: 700;
 }
 
@@ -67,8 +67,6 @@
     background-color: rgb(167, 167, 167);
     border-radius: 100%;
     box-shadow: 0 0 10px 2px gray;
-
-
 }
 .chat-icon
 {

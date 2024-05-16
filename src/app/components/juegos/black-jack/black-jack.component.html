@@ -7,7 +7,7 @@
       <div id="dealer-value" class="valor">
         {{ calcularValores(dealer) }}
       </div>
-      <div id="dealer-hand">
+      <div id="dealer-hand" class="cartas">
         @for(card of dealer; track card)
         {
             <div>
@@ -15,7 +15,7 @@
             </div>
         }
       </div>
-      <div id="player-hand">
+      <div id="player-hand" class="cartas">
         @for(card of jugador; track card ){
             <div>
                 <img [src]="card.image" [alt]="card.code">
@@ -86,7 +86,7 @@
   </div>
 </main>
 <footer class="footer">
-    <p class="text-copy">&copy; 2024 Web de Juegos. Todos los derechos reservados.</p>
+    <p class="text-copy">&copy; 2024 ng Juegos. Todos los derechos reservados.</p>
 </footer>
 <div class="underlay-photo"></div>
 <div class="underlay-black"></div> 
