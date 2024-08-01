@@ -24,7 +24,6 @@ export class RegisterComponent {
 
   constructor(private Auth:AuthService)
   {}
-
   async register()
   {
     try

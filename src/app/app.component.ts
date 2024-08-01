@@ -28,7 +28,6 @@ export class AppComponent implements OnInit {
       {
         this.logueado = true;
         this.correo = usuarioFire.email;
-        this.routerNav.navigate(['/home']);
       }
     });
   }

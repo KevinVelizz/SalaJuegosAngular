@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-
 export const routes: Routes = [
   {path:"ahorcado", loadComponent: () =>
     import('../juegos/ahorcado/ahorcado.component').then(

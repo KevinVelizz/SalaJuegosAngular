@@ -14,16 +14,17 @@ export class MessageService {
     
   }
   
-  agregarDatos(mensaje:MensajeChat) {
+  // agregarDatos(mensaje:MensajeChat) {
 
-    this.firestore.collection('mensajesChat').add(mensaje)
-      .then(() => {
-        console.log('Datos agregados correctamente');
-      })
-      .catch(error => {
-        console.error('Error al agregar datos:', error);
-      });
-  }
+  //   this.firestore.collection('mensajesChat').add(mensaje)
+  //     .then(() => {
+  //       console.log('Datos agregados correctamente');
+  //     })
+  //     .catch(error => {
+  //       console.error('Error al agregar datos:', error);
+  //     });
+  // }
+  
   actualizarDatos(id: string, mensaje:MensajeChat) {
     this.firestore.collection('mensajesChat').doc(id).set(mensaje)
       .then(() => {

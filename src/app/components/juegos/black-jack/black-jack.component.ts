@@ -78,7 +78,7 @@ export class BlackJackComponent {
       this.usuarioTermino = true;
     if(this.jugadorPuntos <= 21)
     {
-      this.CardService.drawCards(this.deckId, 5).subscribe(async data => {
+      this.CardService.drawCards(this.deckId, 10).subscribe(async data => {
         this.cartas = data.cards;
         this.dealerJugando = true;
         while(this.dealerPuntos < 21 && this.dealerPuntos <= this.jugadorPuntos && this.dealerPuntos != 21)

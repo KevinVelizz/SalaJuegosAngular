@@ -47,7 +47,6 @@ export class ChatComponent {
 
   enviarMensaje()
   {
-
     if(this.nuevoMensaje == "") return
     let mensaje = {
       uid: this.usuarioUid,

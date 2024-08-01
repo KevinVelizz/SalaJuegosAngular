@@ -22,7 +22,6 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-
   correo:string = "";
   clave:string = "";
   router2 = inject(Router);
@@ -31,7 +30,7 @@ export class LoginComponent {
   validarUser:string = "";
   usuariosLogueados;
     
-  constructor(private AuthService :AuthService, private MessageService: MessageService, private NotificationService:NotificationService)
+  constructor(private AuthService :AuthService, private MessageService: MessageService)
   {
     this.usuariosLogueados = [
       {email: 'kevinveliz@veliz.com', password: '123456'},
